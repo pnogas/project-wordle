@@ -5,7 +5,7 @@ function GuessInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target.guessInput.value);
+    console.log({ guess });
     setGuess("");
   }
 
@@ -16,11 +16,14 @@ function GuessInput() {
     >
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
+        minLength={5}
+        maxLength={5}
         id="guess-input"
         name="guessInput"
         type="text"
         value={guess}
-        onChange={(event) => setGuess(event.target.value)}
+        onChange={(event) => setGuess(event.target.value.toUpperCase())}
       />
     </form>
   );
