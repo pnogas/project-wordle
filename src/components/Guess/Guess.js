@@ -2,17 +2,11 @@ import React from "react";
 
 import { range } from "../../utils";
 import { checkGuess } from "../../game-helpers";
-import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function Guess({ word, answer, guessNumber, setGameResult }) {
+function Guess({ word, answer }) {
   let styles = word ? checkGuess(word, answer) : undefined;
   if (styles) {
     styles = styles.map((item) => item["status"]);
-    if (styles.filter((x) => x == "correct").length == 5) {
-      setGameResult("win");
-    } else if (guessNumber === NUM_OF_GUESSES_ALLOWED - 1) {
-      setGameResult("lose");
-    }
   }
 
   return (

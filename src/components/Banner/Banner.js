@@ -4,8 +4,11 @@ function Banner({ didWin, numberOfGuesses, answer }) {
   return didWin ? (
     <div className="happy banner">
       <p>
-        <strong>Congratulations!</strong> Got it in
-        <strong>{numberOfGuesses} guesses</strong>.
+        <strong>Congratulations!</strong> Got it in{" "}
+        <strong>
+          {numberOfGuesses === 1 ? "1 guess" : `${numberOfGuesses} guesses`}
+        </strong>
+        .
       </p>
     </div>
   ) : (
