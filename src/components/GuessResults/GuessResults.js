@@ -2,9 +2,13 @@ import React from "react";
 
 function GuessResults({ results }) {
   return (
-    <div class="guess-results">
-      {results.map((result) => {
-        return <p class="guess">{result}</p>;
+    <div className="guess-results">
+      {results.map((result, index) => {
+        return (
+          <p key={index} className="guess">
+            {result}
+          </p>
+        );
       })}
     </div>
   );
