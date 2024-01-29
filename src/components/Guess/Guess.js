@@ -12,8 +12,7 @@ function Guess({ word, answer }) {
   return (
     <p className="guess">
       {range(5).map((index) => {
-        const extra = styles ? " " + styles[index] : "";
-        const clz = "cell" + extra;
+        const clz = styles ? `cell ${styles[index]}` : "cell";
         return (
           <span key={index} className={clz}>
             {word ? word[index] : undefined}
