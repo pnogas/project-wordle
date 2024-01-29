@@ -1,17 +1,17 @@
 import React from "react";
 
-const emptyArray = ["", "", "", "", ""];
+import { range } from "../../utils";
 
-function Guess({ guessNumber, word }) {
-  chars = word === "" ? emptyArray : Array.from(word);
-
+function Guess({ word }) {
   return (
     <p className="guess">
-      {chars.map((c, index) => (
-        <span key={guessNumber + index} className="cell">
-          {c}
-        </span>
-      ))}
+      {range(5).map((index) => {
+        return (
+          <span key={index} className="cell">
+            {word ? word[index] : undefined}
+          </span>
+        );
+      })}
     </p>
   );
 }

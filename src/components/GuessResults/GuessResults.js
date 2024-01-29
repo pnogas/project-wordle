@@ -5,15 +5,11 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import { range } from "../../utils";
 
 function GuessResults({ results }) {
-  const display = range(0, NUM_OF_GUESSES_ALLOWED).map((i) =>
-    results[i] === undefined ? "" : results[i]
-  );
-
   return (
     <div className="guess-results">
-      {display.map((result, index) => {
-        return <Guess key={index} guessNumber={index} word={result} />;
-      })}
+      {range(NUM_OF_GUESSES_ALLOWED).map((index) => (
+        <Guess key={index} word={results[index]} />
+      ))}
     </div>
   );
 }
